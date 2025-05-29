@@ -5,7 +5,7 @@ export const caregivers: Caregiver[] = [
   {
     id: '1',
     name: 'Ana Silva',
-    photo: 'https://images.pexels.com/photos/5328918/pexels-photo-5328918.jpeg?auto=compress&cs=tinysrgb&w=600',
+    photo: 'https://images.pexels.com/photos/29372720/pexels-photo-29372720/free-photo-of-cuidados-para-idosos-na-aconchegante-sala-de-estar-de-praga.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     location: 'São Paulo, SP',
     specializations: ['Alzheimer', 'Mobilidade Reduzida'],
     experience: 5,
@@ -14,11 +14,11 @@ export const caregivers: Caregiver[] = [
     rating: 4.8,
     reviewCount: 24,
     isVerified: true
-  },
+  },  
   {
     id: '2',
-    name: 'Carlos Santos',
-    photo: 'https://images.pexels.com/photos/6749777/pexels-photo-6749777.jpeg?auto=compress&cs=tinysrgb&w=600',
+    name: 'Carla dos Santos',
+    photo: 'https://images.pexels.com/photos/3791664/pexels-photo-3791664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     location: 'Rio de Janeiro, RJ',
     specializations: ['Parkinson', 'Cuidados Paliativos'],
     experience: 7,
@@ -31,7 +31,7 @@ export const caregivers: Caregiver[] = [
   {
     id: '3',
     name: 'Mariana Oliveira',
-    photo: 'https://images.pexels.com/photos/7551652/pexels-photo-7551652.jpeg?auto=compress&cs=tinysrgb&w=600',
+    photo: 'https://images.pexels.com/photos/8415690/pexels-photo-8415690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     location: 'Belo Horizonte, MG',
     specializations: ['Pós-operatório', 'Diabetes'],
     experience: 4,
@@ -44,7 +44,7 @@ export const caregivers: Caregiver[] = [
   {
     id: '4',
     name: 'Ricardo Almeida',
-    photo: 'https://images.pexels.com/photos/5407038/pexels-photo-5407038.jpeg?auto=compress&cs=tinysrgb&w=600',
+    photo: 'https://images.pexels.com/photos/18429373/pexels-photo-18429373/free-photo-of-feliz-alegre-contente-sorridente.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     location: 'Porto Alegre, RS',
     specializations: ['Fisioterapia', 'Mobilidade Reduzida'],
     experience: 8,
@@ -57,7 +57,7 @@ export const caregivers: Caregiver[] = [
   {
     id: '5',
     name: 'Juliana Mendes',
-    photo: 'https://images.pexels.com/photos/8942991/pexels-photo-8942991.jpeg?auto=compress&cs=tinysrgb&w=600',
+    photo: 'https://images.pexels.com/photos/32254523/pexels-photo-32254523/free-photo-of-enfermeira-confiante-em-uniforme-azul-posando-em-ambiente-fechado.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     location: 'São Paulo, SP',
     specializations: ['Alzheimer', 'Demência'],
     experience: 6,
@@ -69,8 +69,8 @@ export const caregivers: Caregiver[] = [
   },
   {
     id: '6',
-    name: 'Pedro Costa',
-    photo: 'https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=600',
+    name: 'Pietra Costa',
+    photo: 'https://images.pexels.com/photos/18429370/pexels-photo-18429370/free-photo-of-comida-alimento-refeicao-mulheres.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     location: 'Recife, PE',
     specializations: ['Acamados', 'Sonda'],
     experience: 9,
