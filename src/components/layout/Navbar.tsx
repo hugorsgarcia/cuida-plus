@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
             <Link to="/" className="text-gray-700 hover:text-primary transition-colors font-medium">
               Início
             </Link>
-            <Link to="/como-funciona" className="text-gray-700 hover:text-primary transition-colors font-medium">
+            <Link to="/#como-funciona" className="text-gray-700 hover:text-primary transition-colors font-medium">
               Como Funciona
             </Link>
             <Link to="/cuidadores" className="text-gray-700 hover:text-primary transition-colors font-medium">
