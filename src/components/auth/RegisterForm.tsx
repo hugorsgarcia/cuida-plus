@@ -4,6 +4,24 @@ import { Link } from 'react-router-dom';
 const RegisterForm: React.FC = () => {
   const [userType, setUserType] = useState<'client' | 'caregiver'>('client');
   
+  // Lista de estados brasileiros para o dropdown
+  const brazilianStates = [
+    { value: 'AC', label: 'Acre' }, { value: 'AL', label: 'Alagoas' },
+    { value: 'AP', label: 'Amapá' }, { value: 'AM', label: 'Amazonas' },
+    { value: 'BA', label: 'Bahia' }, { value: 'CE', label: 'Ceará' },
+    { value: 'DF', label: 'Distrito Federal' }, { value: 'ES', label: 'Espírito Santo' },
+    { value: 'GO', label: 'Goiás' }, { value: 'MA', label: 'Maranhão' },
+    { value: 'MT', label: 'Mato Grosso' }, { value: 'MS', label: 'Mato Grosso do Sul' },
+    { value: 'MG', label: 'Minas Gerais' }, { value: 'PA', label: 'Pará' },
+    { value: 'PB', label: 'Paraíba' }, { value: 'PR', label: 'Paraná' },
+    { value: 'PE', label: 'Pernambuco' }, { value: 'PI', label: 'Piauí' },
+    { value: 'RJ', label: 'Rio de Janeiro' }, { value: 'RN', label: 'Rio Grande do Norte' },
+    { value: 'RS', label: 'Rio Grande do Sul' }, { value: 'RO', label: 'Rondônia' },
+    { value: 'RR', label: 'Roraima' }, { value: 'SC', label: 'Santa Catarina' },
+    { value: 'SP', label: 'São Paulo' }, { value: 'SE', label: 'Sergipe' },
+    { value: 'TO', label: 'Tocantins' }
+  ];
+
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden">
       <div className="flex border-b">
@@ -81,7 +99,7 @@ const RegisterForm: React.FC = () => {
           {/* Conditional Fields - Caregiver */}
           {userType === 'caregiver' && (
             <>
-              <div>
+              <div> {/* Especialidades */}
                 <label className="block text-sm font-medium text-gray-700 mb-1">Especialidades</label>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                   {['Alzheimer', 'Parkinson', 'Mobilidade Reduzida', 'Pós-operatório', 'Diabetes', 'Cuidados Paliativos'].map((spec) => (
@@ -99,7 +117,102 @@ const RegisterForm: React.FC = () => {
                 </div>
               </div>
               
-              <div>
+              {/* START OF NEW FIELDS */}
+              <div className="col-span-1 md:col-span-2">
+                <h3 className="text-lg font-medium text-gray-800 mt-4 mb-0">Endereço Completo</h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="street" className="block text-sm font-medium text-gray-700 mb-1">Rua</label>
+                  <input type="text" name="street" id="street" placeholder="Av. Brasil" className="w-full py-2 px-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required />
+                </div>
+                <div>
+                  <label htmlFor="number" className="block text-sm font-medium text-gray-700 mb-1">Número</label>
+                  <input type="text" name="number" id="number" placeholder="123" className="w-full py-2 px-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="complement" className="block text-sm font-medium text-gray-700 mb-1">Complemento</label>
+                  <input type="text" name="complement" id="complement" placeholder="Apto 101, Bloco A" className="w-full py-2 px-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" />
+                </div>
+                <div>
+                  <label htmlFor="neighborhood" className="block text-sm font-medium text-gray-700 mb-1">Bairro</label>
+                  <input type="text" name="neighborhood" id="neighborhood" placeholder="Centro" className="w-full py-2 px-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-1">Cidade</label>
+                  <input type="text" name="city" id="city" placeholder="Rio de Janeiro" className="w-full py-2 px-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required />
+                </div>
+                <div>
+                  <label htmlFor="state" className="block text-sm font-medium text-gray-700 mb-1">Estado</label>
+                  <select name="state" id="state" className="w-full py-2 px-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required>
+                    <option value="">Selecione o Estado</option>
+                    {brazilianStates.map(state => (
+                      <option key={state.value} value={state.value}>{state.label}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+               <div>
+                  <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mb-1">CEP</label>
+                  <input type="text" name="zipCode" id="zipCode" placeholder="00000-000" className="w-full py-2 px-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required />
+                </div>
+
+
+              <div className="col-span-1 md:col-span-2">
+                <h3 className="text-lg font-medium text-gray-800 mt-4 mb-0">Informações Pessoais</h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="dateOfBirth" className="block text-sm font-medium text-gray-700 mb-1">Data de Nascimento</label>
+                  <input type="date" name="dateOfBirth" id="dateOfBirth" className="w-full py-2 px-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required />
+                </div>
+                <div>
+                  <label htmlFor="cpf" className="block text-sm font-medium text-gray-700 mb-1">CPF</label>
+                  <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" className="w-full py-2 px-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required />
+                </div>
+              </div>
+
+              <div className="col-span-1 md:col-span-2">
+                <h3 className="text-lg font-medium text-gray-800 mt-4 mb-0">Documentos</h3>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="idDocument" className="block text-sm font-medium text-gray-700 mb-1">Doc. de Identificação (RG/CNH)</label>
+                  <input 
+                    type="file" 
+                    name="idDocument" 
+                    id="idDocument" 
+                    className="w-full text-sm text-gray-700 border border-gray-300 rounded-lg cursor-pointer focus:outline-none focus:ring-primary focus:border-primary file:mr-3 file:py-2 file:px-3 file:rounded-l-md file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20" 
+                    accept="image/*,.pdf" 
+                    required 
+                  />
+                  <p className="mt-1 text-xs text-gray-500">Envie imagem ou PDF (max. 5MB).</p>
+                </div>
+                <div>
+                  <label htmlFor="proofOfResidence" className="block text-sm font-medium text-gray-700 mb-1">Comprovante de Residência</label>
+                  <input 
+                    type="file" 
+                    name="proofOfResidence" 
+                    id="proofOfResidence" 
+                    className="w-full text-sm text-gray-700 border border-gray-300 rounded-lg cursor-pointer focus:outline-none focus:ring-primary focus:border-primary file:mr-3 file:py-2 file:px-3 file:rounded-l-md file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20" 
+                    accept="image/*,.pdf" 
+                    required 
+                  />
+                  <p className="mt-1 text-xs text-gray-500">Conta de água, luz, etc. (max. 5MB).</p>
+                </div>
+              </div>
+              {/* END OF NEW FIELDS */}
+              
+              <div> {/* Valor por Hora */}
                 <label className="block text-sm font-medium text-gray-700 mb-1">Valor por Hora (R$)</label>
                 <input
                   type="number"
@@ -110,7 +223,7 @@ const RegisterForm: React.FC = () => {
                 />
               </div>
               
-              <div>
+              <div> {/* Experiência */}
                 <label className="block text-sm font-medium text-gray-700 mb-1">Experiência</label>
                 <textarea
                   className="w-full py-2 px-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"
