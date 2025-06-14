@@ -5,11 +5,16 @@ import { MapPin, Clock, Calendar, Send, Phone, ArrowLeft, Calendar as CalendarIc
 import StarRating from '../components/ui/StarRating';
 import VerifiedBadge from '../components/ui/VerifiedBadge';
 import CaregiverReviews from '../components/caregivers/CaregiverReviews';
+import { Caregiver } from '../lib/types';
 
-const CaregiverDetailPage: React.FC = () => {
+interface CaregiverDetailPageProps {
+  onOpenChat: (caregiver: Caregiver) => void;
+}
+
+const CaregiverDetailPage: React.FC<CaregiverDetailPageProps> = ({ onOpenChat }) => {
   const { id } = useParams<{ id: string }>();
   const [activeTab, setActiveTab] = useState<'about' | 'reviews'>('about');
-  
+
   const caregiver = caregivers.find(c => c.id === id);
   
   if (!caregiver) {
@@ -23,6 +28,13 @@ const CaregiverDetailPage: React.FC = () => {
       </div>
     );
   }
+
+  const handleContactClick = () => {
+    // Chama a função passada pelo App.tsx com os dados do cuidador
+    if (caregiver) { // Ensure caregiver is not null before calling
+      onOpenChat(caregiver);
+    }
+  };
   
   return (
     <div className="bg-gray-50 min-h-screen py-8">
@@ -54,6 +66,30 @@ const CaregiverDetailPage: React.FC = () => {
                   <h1 className="text-2xl font-bold">{caregiver.name}</h1>
                   {caregiver.isVerified && <VerifiedBadge />}
                 </div>
+
+                <div className="bg-gray-50 p-4 rounded-lg">
+                <div className="font-bold text-2xl text-gray-900">
+                  R${caregiver.hourlyRate}<span className="text-base font-normal text-gray-500">/hora</span>
+                </div>
+                <div className="flex items-center mt-1 mb-3">
+                  <StarRating rating={caregiver.rating} size={20} />
+                  <span className="text-sm text-gray-500 ml-2">({caregiver.reviewCount} avaliações)</span>
+                </div>
+                
+                {/* Botão modificado */}
+                <button 
+                  className="w-full btn-primary mb-2"
+                  onClick={handleContactClick}
+                >
+                  Entrar em contato
+                </button>
+                <button className="w-full btn-outline flex items-center justify-center">
+                  <Phone size={16} className="mr-2" />
+                  Solicitar ligação
+                </button>
+              </div>
+            </div>
+          </div>
                 
                 <div className="flex items-center mt-2">
                   <MapPin size={16} className="text-gray-500 mr-1" />
@@ -154,8 +190,6 @@ const CaregiverDetailPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
   );
 };
 
