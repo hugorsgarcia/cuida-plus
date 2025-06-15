@@ -107,25 +107,6 @@ const CaregiverDetailPage: React.FC<CaregiverDetailPageProps> = ({ onOpenChat })
                   ))}
                 </div>
               </div>
-              
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <div className="font-bold text-2xl text-gray-900">
-                  R${caregiver.hourlyRate}<span className="text-base font-normal text-gray-500">/hora</span>
-                </div>
-                
-                <div className="flex items-center mt-1 mb-3">
-                  <StarRating rating={caregiver.rating} size={20} />
-                  <span className="text-sm text-gray-500 ml-2">({caregiver.reviewCount} avaliações)</span>
-                </div>
-                
-                <button className="w-full btn-primary mb-2">
-                  Entrar em contato
-                </button>
-                <button className="w-full btn-outline flex items-center justify-center">
-                  <Phone size={16} className="mr-2" />
-                  Solicitar ligação
-                </button>
-              </div>
             </div>
           </div>
           
